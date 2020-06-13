@@ -1,1 +1,1 @@
-["            open_gui()\n", " ", ", QMainWindow"]
+["reate the QVBoxLayout object and add the widgets into the layout. Finally, we call QWidget::setLayout() to install the QVBoxLayout object onto the widg", "            open_gui()\n", " ", ", QMainWindow"]

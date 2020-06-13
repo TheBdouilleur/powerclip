@@ -8,6 +8,7 @@ from pynput import keyboard
 
 import powerclip_gui
 
+
 def refresh():
     """Save changes to and reload json file"""
     with open('clips.json', 'r') as clips:
@@ -23,15 +24,16 @@ def refresh():
     print("new", newClipboardContent)
     if newClipboardContent not in currentClipboardContent:
         print('Appending...')
-        currentClipboardContent.append(newClipboardContent)
+        currentClipboardContent.insert(0, newClipboardContent)
         with open('clips.json', 'w') as newFile:
             json.dump(currentClipboardContent, newFile)
 
-
+'''
 def open_gui():
     """Save changes to clips.json and run GUI"""
     refresh()
     exec(open('powerclip_gui.py').read())
+
 
 COMBINATION = {keyboard.Key.cmd, keyboard.KeyCode.from_char('v')}
 current = set()
@@ -56,7 +58,7 @@ def on_release(key):
 
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
-
+'''
 while True:
     refresh()
     time.sleep(0.5)
